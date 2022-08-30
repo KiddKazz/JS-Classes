@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Functions</title>
+</head>
+<body>
+    <h1>Method Functions</h1>
+    <script>
+        // Call method
+        var person = {
+            fullName: function() {
+                return this.firstName + ' ' + this.lastName;
+            }
+        }
+
+        var firstPerson = {
+            firstName: 'John',
+            lastName: 'Doe'
+        }
+        var secondPerson = {
+            firstName: 'Jane',
+            lastName: 'Doe'
+        }
+
+        document.write('<h3>Call() Method</h3>');
+        document.write(person.fullName.call(firstPerson) + '<br>');
+        document.write(person.fullName.call(secondPerson) + '<br>');
+        
+        person = {
+            fullName: function(city, country) {
+                return this.firstName + ' ' + this.lastName + ', ' + city + ', ' + country;
+            }
+        }
+        
+        document.write('<h3>Call() Method with Arguments</h3>');
+        document.write(person.fullName.call(firstPerson, 'Miami', 'USA') + '<br>');
+        document.write(person.fullName.call(secondPerson, 'Toronto', 'Canada') + '<br>');
+        document.write('<br>');
+
+        // Bind() method
+        var checkRange = function(value) {
+            if (typeof value !== 'number') {
+                return false;
+            } else {
+                return value >= this.minimum && value <= this.maximum;
+            }
+        }
+
+        var range = {minimum: 10, maximum: 20};
+        var boundedFunction = checkRange.bind(range);
+        var result = boundedFunction(5);
+        document.write('<h3>Bind() Method</h3>');
+        document.write('Is 5 in the range?<br>' + range.minimum + ' - ' + range.maximum + '<br>');
+        document.write(result);
+    </script>
+</body>
+</html>

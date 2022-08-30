@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soldier Custom Object</title>
+    <script>
+        let soldier = {
+            name: undefined,
+            rank: 'captain',
+            fallIn: function() {
+                alert('At attention, arms to the side and eyes forward.');
+            },
+            fallOut: function() {
+                alert('Drop out of formation, step back, about face!');
+            }
+        };
+    </script>
+</head>
+<body>
+    <h1>Soldier Custom Object</h1>
+    <script>
+        soldier.name = 'Tina Savage';
+        document.write('The name of the soldier is ' + soldier.name + '.<br>');
+        document.write('The rank of ' + soldier.name + ' is ' + soldier.rank + '.<br>');
+        soldier.fallIn();
+        soldier.fallOut();
+    </script>
+</body>
+</html>
